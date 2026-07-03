@@ -1,0 +1,150 @@
+/* ── Variables globales (tema claro por defecto) ─────────
+   Todas las variables CSS se definen aquí para poder
+   reutilizarlas en todo el proyecto fácilmente          */
+:root {
+  /* Colores de texto */
+  --text: #6b6375;       /* Texto normal (gris suave) */
+  --text-h: #08060d;     /* Texto de títulos (casi negro) */
+
+  /* Colores de fondo y bordes */
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;    /* Fondo para bloques de código */
+
+  /* Colores de acento (morado) para botones y detalles */
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);       /* Fondo suave del acento */
+  --accent-border: rgba(170, 59, 255, 0.5);   /* Borde semitransparente */
+
+  --social-bg: rgba(244, 243, 236, 0.5);      /* Fondo de botones sociales */
+
+  /* Sombra con dos capas para mayor profundidad */
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  /* Familias tipográficas */
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;    /* Texto general */
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif; /* Títulos */
+  --mono: ui-monospace, Consolas, monospace;             /* Código */
+
+  /* Tipografía base: 18px con interlineado del 145% */
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+
+  color-scheme: light dark;        /* Indica que soporta modo claro y oscuro */
+  color: var(--text);
+  background: var(--bg);
+
+  font-synthesis: none;            /* Evita que el navegador genere negritas/cursivas falsas */
+  text-rendering: optimizeLegibility; /* Mejora la calidad visual del texto */
+  -webkit-font-smoothing: antialiased;      /* Suavizado de fuentes en Chrome/Safari */
+  -moz-osx-font-smoothing: grayscale;       /* Suavizado en Firefox/Mac */
+
+  /* En pantallas pequeñas reduce el tamaño de fuente */
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* ── Tema oscuro ─────────────────────────────────────────
+   Se activa automáticamente si el sistema del usuario
+   tiene el modo oscuro habilitado                        */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Reemplaza los colores del tema claro por versiones oscuras */
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    /* Sombras más oscuras para el tema dark */
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  /* Invierte los iconos sociales para que se vean bien en fondo oscuro */
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+/* ── Reset del body ──────────────────────────────────────
+   Elimina el margen por defecto del navegador           */
+body {
+  margin: 0;
+}
+
+/* ── Contenedor principal ────────────────────────────────
+   Centra el contenido con ancho máximo de 1126px        */
+#root {
+  width: 1126px;
+  max-width: 100%;       /* En móvil ocupa el 100% del ancho */
+  margin: 0 auto;        /* Centrado horizontal */
+  text-align: center;
+  border-inline: 1px solid var(--border); /* Bordes laterales decorativos */
+  min-height: 100svh;    /* Ocupa al menos toda la altura de la pantalla */
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  box-sizing: border-box;
+}
+
+/* ── Títulos h1 y h2 ─────────────────────────────────────
+   Estilo compartido: misma fuente y peso                */
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+/* Título principal grande */
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px; /* Letras más juntas para títulos grandes */
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;  /* Más pequeño en móvil */
+    margin: 20px 0;
+  }
+}
+
+/* Subtítulo */
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+/* Elimina el margen por defecto de los párrafos */
+p {
+  margin: 0;
+}
+
+/* ── Código y contador ───────────────────────────────────
+   Estilos compartidos entre bloques de código y el
+   botón contador                                         */
+code,
+.counter {
+  font-family: var(--mono);   /* Fuente monoespaciada */
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+/* Estilo específico para bloques de código inline */
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg); /* Fondo crema para resaltar el código */
+}
