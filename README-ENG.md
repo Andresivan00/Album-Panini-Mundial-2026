@@ -1,4 +1,4 @@
-# World Cup 2026 Panini Album
+# Database - Panini World Album 2026
 
 A full-stack web app that simulates a digital sticker album for the 2026 World Cup, with **React** on the frontend and **Express + MySQL** on the backend. Lets users register and manage a personal sticker inventory. Academic project for the Web Development course (Universidad de la Costa).
 
