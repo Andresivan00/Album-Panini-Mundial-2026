@@ -1,4 +1,4 @@
-# Álbum Panini Mundial 2026
+# Base de datos - Álbum Mundial Panini 2026
 
 Aplicación web full-stack que simula un álbum digital de figuritas del Mundial 2026, con **React** en el frontend y **Express + MySQL** en el backend. Permite registrar usuarios y gestionar un inventario personal de láminas. Proyecto académico para la asignatura Desarrollo Web (Universidad de la Costa).
 
